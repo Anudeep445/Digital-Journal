@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Journal | CodTech Internship</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="access-screen" id="accessScreen" aria-labelledby="accessTitle">
+    <div class="access-card">
+      <p class="eyebrow">YOUR PRIVATE SPACE</p>
+      <h1 id="accessTitle">Journal access</h1>
+      <p class="access-description" id="accessDescription"></p>
+      <form id="accessForm">
+        <label for="accessPassword">Password</label>
+        <input id="accessPassword" type="password" autocomplete="current-password"
+               minlength="8" required>
+        <div id="confirmPasswordField" class="hidden">
+          <label for="confirmPassword">Confirm password</label>
+          <input id="confirmPassword" type="password" autocomplete="new-password" minlength="8">
+        </div>
+        <p id="accessMessage" class="access-message" role="status" aria-live="polite"></p>
+        <button class="primary" id="accessButton" type="submit">Unlock journal</button>
+      </form>
+      <p class="privacy-warning">This is a convenience lock, not secure authentication. Journal entries are stored unencrypted in this browser and may be accessible to someone using this device or developer tools. Do not use it for sensitive information.</p>
+    </div>
+  </section>
+
+  <div id="journalApp" class="hidden">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">CODTECH INTERNSHIP PROJECT</p>
+        <h1>My Digital Journal</h1>
+        <p class="subtitle">A quiet space to capture your thoughts, one day at a time.</p>
+      </div>
+      <div class="header-actions">
+        <div class="date-chip" id="todayLabel"></div>
+        <button class="secondary" id="lockButton" type="button">Lock journal</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel editor">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR SPACE</p>
+            <h2 id="formHeading">Write an entry</h2>
+          </div>
+          <span class="icon">✎</span>
+        </div>
+
+        <form id="entryForm">
+          <label for="entryTitle">Title</label>
+          <input id="entryTitle" name="title" type="text" maxlength="80"
+                 placeholder="A thought worth keeping..." required>
+
+          <label for="entryDate">Date</label>
+          <input id="entryDate" name="date" type="date" required>
+
+          <label for="entryMood">How are you feeling?</label>
+          <select id="entryMood" name="mood">
+            <option>🙂 Good</option>
+            <option>😌 Calm</option>
+            <option>🤩 Excited</option>
+            <option>😐 Okay</option>
+            <option>😔 Low</option>
+            <option>😤 Stressed</option>
+            <option>🙏 Grateful</option>
+            <option>😟 Anxious</option>
+            <option>🌱 Hopeful</option>
+            <option>😴 Tired</option>
+            <option>😢 Sad</option>
+            <option>🏆 Proud</option>
+            <option>❤️ Loved</option>
+            <option>🥰 Happy</option>
+            <option>😕 Confused</option>
+            <option>😠 Angry</option>
+            <option>🥱 Bored</option>
+            <option>🤔 Reflective</option>
+            <option>🧘 Peaceful</option>
+            <option>💪 Motivated</option>
+          </select>
+
+          <label for="entryContent">Your entry</label>
+          <textarea id="entryContent" name="content" rows="7"
+                    placeholder="Start writing here..." required></textarea>
+
+          <div class="form-actions">
+            <button class="primary" id="saveButton" type="submit">Save entry</button>
+            <button class="secondary hidden" id="cancelButton" type="button">Cancel edit</button>
+          </div>
+          <p class="small-note">Entries are saved in this browser on this device.</p>
+        </form>
+      </section>
+
+      <section class="entries-area">
+        <div class="section-heading entries-heading">
+          <div>
+            <p class="eyebrow">LOOK BACK</p>
+            <h2>Your entries <span class="count" id="entryCount">0</span></h2>
+          </div>
+          <div class="search-wrap">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="Search entries..." aria-label="Search entries">
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat-card"><span>Total entries</span><strong id="totalStat">0</strong></div>
+          <div class="stat-card"><span>Latest entry</span><strong class="latest" id="latestStat">—</strong></div>
+        </div>
+        <div id="entriesList" class="entries-list"></div>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">✧</div>
+          <h3>Your story starts here</h3>
+          <p>Write your first journal entry using the form.</p>
+        </div>
+        <p id="noResults" class="empty-state hidden">No entries match your search.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Built as a learning project for CodTech IT Solutions</span>
+      <span>Made with HTML · CSS · JavaScript</span>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
